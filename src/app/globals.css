@@ -31,3 +31,23 @@ body {
     text-wrap: balance;
   }
 }
+
+/**
+
+  TODO do this properly later (SCSS/LESS?)
+
+  Colors:
+  #f6b5a7 Pink
+  #f4ce90 Light orange
+  #14597e Dark blue (primary action)
+  #148f71 Dark green (secondary action)
+  #7ad38f Light green
+  #c3536f Red (danger)
+ */
+
+button {
+  padding: .3rem .6rem;
+  background-color: #148f71;
+  color: #fff;
+  border-radius: .2rem;
+}
