@@ -1,0 +1,17 @@
+@import "../../styles/constants.scss";
+
+.location {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    margin: $pad-large 0;
+
+    .controls {
+        margin-left: auto;
+    }
+
+    button {
+        margin-left: $pad-small;
+    }
+}

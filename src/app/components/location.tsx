@@ -1,20 +1,30 @@
 import { LatLng } from '../common/types';
+import styles from './styles/location.module.scss';
 
 type Props = {
-    location: LatLng
+    location: LatLng;
+    editing: boolean;
+    onEdit: () => void;
+    onDelete: () => void
 };
 
-export default function Location(props: Props) {
+export default function Location({ location, editing, onEdit, onDelete }: Props) {
 
-    const { location: { lat, lng } } = props;
+    const { lat, lng } = location;
 
-    // TODO
-    // - edit button
-    // - delete button
+    const contents = editing
+        ? <input type="text" /> // TODO
+        : <p>{ lat }, { lng }</p>
+
+    const controls = <div className={ styles.controls }>
+        <button onClick={ onEdit }>Edit</button>
+        <button onClick={ onDelete }>Delete</button>
+    </div>;
 
     return (
-        <div>
-            <p>{ lat }, { lng }</p>
+        <div className={ styles.location }>
+            { contents }
+            { editing ? undefined : controls }
         </div>
     );
 }

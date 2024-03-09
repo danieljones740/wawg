@@ -18,12 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #fff;
 }
 
 @layer utilities {
@@ -45,9 +40,17 @@ body {
   #c3536f Red (danger)
  */
 
-button {
+main {
+  background-color: #f4ce90;
+}
+
+button, .btn {
   padding: .3rem .6rem;
   background-color: #148f71;
   color: #fff;
   border-radius: .2rem;
+}
+
+button.primary, .btn.primary {
+  background-color: #14597e;
 }

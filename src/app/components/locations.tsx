@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { LatLng } from '../common/types';
 import Location from './location';
 
 // TODO
 // - Location entry component (needs design)
-// - Button to take the user to results page
 
 export default function Locations() {
 
@@ -21,17 +21,42 @@ export default function Locations() {
         addLocation(location);
     }
 
+    function editLocationHandler(index: number) {
+        // TODO
+        return () => {};
+    }
+
+    function removeLocationHandler(index: number) {
+        return () => {
+            setLocations(locations.filter((_, i) => i !== index));
+        };
+    }
+
     const elements = locations.map((location, index) => 
-        <Location key={index} location={location}></Location>
+        <Location
+            key={index}
+            location={location}
+            editing={false}
+            onEdit={ () => editLocationHandler(index) }
+            onDelete={ () => removeLocationHandler(index) }
+        ></Location>
     );
 
-    const buttonText = locations.length ? 'Add another' : 'Add a location';
-
     return (
-        <section>
-            { elements }
-            <button className="btn" onClick={handleAddClick}>{ buttonText }</button>
-        </section>
+        <>
+            <section>
+                { elements }
+                <button onClick={handleAddClick}>
+                    { locations.length ? 'Add another' : 'Add a location' }
+                </button>
+            </section>
+            { locations.length
+                ? <section>
+                    <Link className="btn primary" href="/results">Let's go!</Link>
+                </section>
+                : ''
+            }
+        </>
     );
 }
 
